@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Lab2</title>
+  </head>
+  <body>
+    <form action="thankyou.html" method="get">
+      <input type="hidden" name="id" value="1651sd5f1sdf84sdf1sdf">
+  
+      <div class="group">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required tabindex="1" accesskey="f">
+      </div>
+  
+      <div class="group">
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required tabindex="2" accesskey="l">
+      </div>
+  
+      <div class="group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required tabindex="3" accesskey="e">
+      </div>
+  
+      <div class="group">
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd" required minlength="8" tabindex="4" accesskey="p">
+      </div>
+  
+      <div class="group">
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate" required tabindex="5">
+      </div>
+  
+      <div class="group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter phone number" required tabindex="6">
+      </div>
+  
+      <div class="group">
+        <label for="pImg">Upload Your Image:</label>
+        <input type="file" id="pImg" name="pImg" accept="image/*" required tabindex="8">
+      </div>
+  
+      <div class="group-gender">
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male" tabindex="9"> Male
+        <input type="radio" name="gender" value="female" tabindex="10"> Female
+      </div>
+  
+      <div class="group">
+        <label for="faculty">Faculty:</label>
+        <select id="faculty" name="faculty" required tabindex="11">
+          <option value="">Select your faculty</option>
+          <option value="CS">Computer Science</option>
+          <option value="com">Commerce</option>
+          <option value="arts">Arts</option>
+        </select>
+      </div>
+  
+      <div class="group">
+        <label>Interests:</label>
+        <div>
+          <input type="checkbox" id="prog" name="interests" value="Programming" tabindex="12">
+          <label for="prog">Programming</label>
+        </div>
+        <div>
+          <input type="checkbox" id="reading" name="interests" value="reading" tabindex="13">
+          <label for="reading">Reading</label>
+        </div>
+        <div>
+          <input type="checkbox" id="swimming" name="interests" value="swimming" tabindex="14">
+          <label for="swimming">Swimming</label>
+        </div>
+      </div>
+  
+      <div class="group">
+        <label for="aboutU">About You:</label>
+        <textarea id="aboutU" name="aboutU" rows="4" cols="50" tabindex="15"></textarea>
+      </div>
+  
+      <div class="group-term">
+        <input type="checkbox" id="terms" name="terms" required tabindex="16">
+        <label for="terms">I agree to the <a href="terms.html" target="_blank">Terms and Conditions</a></label>
+      </div>
+  
+      <div class="group">
+        <input type="submit" value="Submit" tabindex="17">
+      </div>
+    </form>
+  </body>
+  </html>
