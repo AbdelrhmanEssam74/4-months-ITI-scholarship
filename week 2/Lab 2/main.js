@@ -1,5 +1,5 @@
 //?Task 1
-// const jsTips = [
+// const tips = [
 //     "Use 'let' and 'const' instead of 'var' for better scoping.",
 //     "Always use strict equality (===) to avoid type coercion issues.",
 //     "Use arrow functions for cleaner syntax and to maintain 'this' context.",
@@ -11,21 +11,21 @@
 //     "Learn about closures to better understand scope and variable access.",
 //     "Familiarize yourself with the Document Object Model (DOM) for manipulating HTML."
 // ];
-
+//
 // function Random() {
-//     let index = Math.floor(Math.random() * jsTips.length)
+//     let index = Math.floor(Math.random() * tips.length)
 //     document.write(`<h2>Today Tip</h2>`)
-//     document.write(`<p> ${jsTips[index]} </p>`)
+//     document.write(`<p> ${tips[index]} </p>`)
 // }
 // Random();
 
 //?Task 2
-// 2-	Make a button that display the current date and time in local format on the page.
-// let currentDate = new Date()
-// let formatedDate = currentDate.toLocaleString()
-// function makeDate(){
-//     document.getElementById('date').innerHTML = formatedDate
-// }
+
+let currentDate = new Date()
+let formatedDate = currentDate.toLocaleString()
+function makeDate(){
+    document.getElementById('date').innerHTML = formatedDate
+}
 
 //?Task 3
 
@@ -82,7 +82,7 @@
 // )
 // console.log(degree)
 
-//* Point 2
+//* Point 3
 // studentsGrades.filter(
 //     function (v){
 //         return v < 60
