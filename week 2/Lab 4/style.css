@@ -7,7 +7,7 @@ body {
     height: 100vh;
     margin: 0;
 }
-
+/*Task 1 | 2*/
 .form-container {
     background: white;
     padding: 20px;
@@ -97,15 +97,28 @@ input:focus, select:focus {
     border-radius: 5px;
     color: #fff;
 }
-input:valid {
-    border: 2px solid green;
-}
-input:invalid {
-    border: 2px solid red;
-}
+/*Task 3*/
+/*input:valid {*/
+/*    border: 2px solid green;*/
+/*}*/
+/*input:invalid {*/
+/*    border: 2px solid red;*/
+/*}*/
+
+/*Task 4*/
+/*input:valid {*/
+/*    border: 2px solid green;*/
+/*    background: url('valid.png') no-repeat right;*/
+/*    background-size: 20px;*/
+/*}*/
+/*input:invalid {*/
+/*    border: 2px solid red;*/
+/*    background: url('not_valid.png') no-repeat right;*/
+/*    background-size: 20px;*/
+/*}*/
+
 
 /*Task 3*/
-
 /*form {*/
 /*    background: white;*/
 /*    padding: 20px;*/
