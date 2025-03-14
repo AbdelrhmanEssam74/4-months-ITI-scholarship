@@ -12,7 +12,6 @@ function showImage(i) {
 }
 showImage(x)
 play.onclick = () => {
-    stopSlideshow()  
     stopGallery = setInterval(() => {
         x = (x + 1) % images.length
         showImage(x)
