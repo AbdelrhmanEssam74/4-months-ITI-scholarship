@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.checkbox-container input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+.error{
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 50%;
+    transform: translate(106%, -68%);
+    background: red;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+.valid{
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 50%;
+    transform: translate(106%, -68%);
+    background: red;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+input:valid {
+    border: 2px solid green;
+}
+input:invalid {
+    border: 2px solid red;
+}
+
+/*Task 3*/
+
+/*form {*/
+/*    background: white;*/
+/*    padding: 20px;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+/*input:valid {*/
+/*    border: 2px solid green;*/
+/*}*/
+/*input:invalid {*/
+/*    border: 2px solid red;*/
+/*}*/
+/*.container {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+/*label {*/
+/*    margin-top: 10px;*/
+/*}*/
+/*button {*/
+/*    margin-top: 15px;*/
+/*    padding: 10px;*/
+/*    background-color: blue;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
