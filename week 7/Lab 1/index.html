@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week 7 | Lab 1 | HTML5</title>
+    <style>
+        #dropzone {
+            width: 400px;
+            height: 200px;
+            border: 2px dashed black;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<!--Point 1-->
+<svg width="500px" height="500px">
+    <circle id="c1" cx="200" cy="200" r="50" fill="transparent" stroke-width="2px" stroke="black"></circle>
+</svg>
+
+<!--Point 2 | 3-->
+<canvas
+        id="canvas"
+        width="500"
+        height="400"
+        style="border: 1px solid black; background-color: lightblue;"
+></canvas>
+
+<!--Point 4-->
+<div id="dropzone" ondragover="event.preventDefault()" ondrop="drop(this)">
+</div>
+
+<img src="https://www.w3schools.com/html/img_chania.jpg"
+     alt="img"
+     width="200"
+     ondragstart="dragStart(this)"
+     draggable="true">
+<br>
+<!--Point 5-->
+<button onclick="getLocation()">location</button>
+<script>
+
+</script>
+<script src="main.js"></script>
+</body>
+</html>
