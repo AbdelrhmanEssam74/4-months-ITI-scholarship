@@ -1,0 +1,63 @@
+
+header {
+    width: 98%;
+    height: 100px;
+    background-color: red;
+    margin: 5px;
+}
+
+nav {
+    width: 98%;
+    height: 50px;
+    background-color: green;
+    margin: 5px;
+}
+
+.main {
+    display: flex;
+    width: 98%;
+    margin: 5px;
+}
+
+.content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    height: 190px;
+    background-color: blueviolet;
+    margin-bottom: 5px;
+}
+
+article {
+    height: 190px;
+    background-color: yellow;
+}
+
+aside {
+    flex: 1;
+    background-color: #ff6d6d;
+    margin-left: 5px;
+}
+
+footer {
+    width: 98%;
+    height: 100px;
+    background-color: blue;
+    margin: 5px;
+}
+
+.star {
+    width: 50px;
+    height: 50px;
+    background-image: url('empty_star.png');
+    background-size: cover;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.filled {
+    background-image: url('filled_star.png');
+}
