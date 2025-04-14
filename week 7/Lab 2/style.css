@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Font';
+    src: url('Blantik 400.ttf');
+}
+
+#curved_div {
+    width: 200px;
+    height: 100px;
+    background-color: #f00;
+    border-radius: 30px 10px 60px 60px;
+}
+
+#text {
+    font-family: 'Font';
+    font-size: 20px;
+    column-count: 3;
+}
+#div1{
+    height: 100vh;
+    width: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    transform: rotate(90deg);
+    transform-origin: left top;
+    margin-left: 50px;
+    position: fixed;
+}
+.image1 {
+    width: 100px;
+    height: 100px;
+    margin: 50px auto;
+    display: block;
+    transition: all 1s ease;
+}
+
+.image1:hover {
+    transform: rotate(360deg);
+    width: 150px;
+    height: 150px;
+}
+.image2 {
+    width: 100px;
+    height: 100px;
+    margin: 50px auto;
+    display: block;
+    animation: animation 5s infinite alternate;
+}
+
+@keyframes animation {
+    0% {
+        transform: translateX(0) rotate(0) scale(1);
+    }
+    100% {
+        transform: translateX(300px) rotate(360deg) scale(1.5);
+    }
+}
+
+.tiger {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: 400px;
+    transform: scaleX(-1);
+    transition: all 2s ease;
+}
+
+.tiger:hover {
+    transform: scaleX(1) translateX(calc(100vw - 250px));
+}
+
+
+.tiger2 {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    animation: tiger2 5s infinite alternate;
+}
+
+@keyframes tiger2 {
+    0% {
+        left: 0;
+        transform: scaleX(-1);
+    }
+    100% {
+        left: calc(100% - 200px);
+        transform: scaleX(1);
+    }
+}
