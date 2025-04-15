@@ -66,7 +66,7 @@
 }
 
 .tiger:hover {
-    transform: scaleX(1) translateX(calc(100vw - 250px));
+    transform: scaleX(1) translateX(400px);
 }
 
 
@@ -84,7 +84,7 @@
         transform: scaleX(-1);
     }
     100% {
-        left: calc(100% - 200px);
+        left: 400px;
         transform: scaleX(1);
     }
 }
