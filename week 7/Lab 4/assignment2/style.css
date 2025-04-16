@@ -1,0 +1,26 @@
+.hero {
+    background: url('back1.jpg') no-repeat bottom center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+.circle-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+footer {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+.active{
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
