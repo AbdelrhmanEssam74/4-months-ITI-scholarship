@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-          integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -14,21 +13,22 @@
 <body>
 
 <!--header-->
-<header class="d-flex flex-wrap justify-content-center py-3  border-bottom">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-            <use xlink:href="#bootstrap"/>
-        </svg>
-        <span class="fs-4">My Site</span>
-    </a>
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-    </ul>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">HOSTO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#" class="nav-link">Plans</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Support</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <!--hero section-->
 <div id="carouselExampleIndicators " class="carousel slide mb-5">
@@ -63,7 +63,8 @@
     </button>
 </div>
 
-<div class="container mt-5 mb-5">
+<section class="container-fluid  card-section">
+    <div class="container   ">
     <div class="card-group">
         <div class="card">
             <div class="card-body text-center">
@@ -97,29 +98,31 @@
         </div>
     </div>
 </div>
+</section>
 
 <!--pricing-->
-<div class="container-fluid bg-body-secondary">
+<div class="container-fluid pricing-section bg-body-secondary">
     <div class="container py-5">
-        <h2 class="text-center mb-5 price_header h1 fw-bold">
+        <h2 class="text-center mb-5 price_header display-5 fw-bold">
             Hosto <span>Plans</span> & <span>Pricing</span>
         </h2>
-        <div class="row g-3">
+        <div class="row g-4">
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="card pricing-card h-100">
                     <div class="card-header pricing-header p-4">
                         <h3 class="card-title text-center mb-0">Basic</h3>
                     </div>
                     <div class="card-body p-4">
-                        <h2 class="card-title text-center mb-4">$19<small class="text-muted">/mo</small></h2>
+                        <h2 class="card-title text-center mb-4">$4<span class="text-muted">,45/mo</span></h2>
                         <ul class="feature-list text-center mb-4">
                             <li>5 Projects</li>
                             <li>20 GB Storage</li>
                             <li>Basic Support</li>
                             <li>1 User</li>
+                            <li>Free SSL Certificate</li>
                         </ul>
                         <div class="text-center price-btn">
-                            <a href="#" class="btn   btn-custom">Choose Plan</a>
+                            <a href="#" class="btn btn-custom">Choose Plan</a>
                         </div>
                     </div>
                 </div>
@@ -128,18 +131,20 @@
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="card pricing-card h-100">
                     <div class="card-header pricing-header pro-header p-4">
-                        <h3 class="card-title text-center mb-0">Pro</h3>
+                        <h3 class="card-title text-center mb-0">Standard</h3>
+                        <div class="badge bg-white text-success mt-2">Popular</div>
                     </div>
                     <div class="card-body p-4">
-                        <h2 class="card-title text-center mb-4">$49<small class="text-muted">/mo</small></h2>
+                        <h2 class="card-title text-center mb-4">$9<span class="text-muted">,45/mo</span></h2>
                         <ul class="feature-list text-center mb-4">
                             <li>15 Projects</li>
                             <li>50 GB Storage</li>
                             <li>Priority Support</li>
                             <li>5 Users</li>
+                            <li>Free Domain</li>
                         </ul>
                         <div class="text-center price-btn">
-                            <a href="#" class="btn   btn-custom">Choose Plan</a>
+                            <a href="#" class="btn btn-custom">Choose Plan</a>
                         </div>
                     </div>
                 </div>
@@ -148,45 +153,190 @@
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="card pricing-card h-100">
                     <div class="card-header pricing-header enterprise-header p-4">
+                        <h3 class="card-title text-center mb-0">Premium</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <h2 class="card-title text-center mb-4">$12<span class="text-muted">,45/mo</span></h2>
+                        <ul class="feature-list text-center mb-4">
+                            <li>Unlimited Projects</li>
+                            <li>100 GB Storage</li>
+                            <li>24/7 Support</li>
+                            <li>10 Users</li>
+                            <li>Free CDN</li>
+                        </ul>
+                        <div class="text-center price-btn">
+                            <a href="#" class="btn btn-custom">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card pricing-card h-100">
+                    <div class="card-header pricing-header p-4 bg-dark text-white">
                         <h3 class="card-title text-center mb-0">Enterprise</h3>
                     </div>
                     <div class="card-body p-4">
-                        <h2 class="card-title text-center mb-4">$99<small class="text-muted">/mo</small></h2>
+                        <h2 class="card-title text-center mb-4">$14<span class="text-muted">,45/mo</span></h2>
                         <ul class="feature-list text-center mb-4">
                             <li>Unlimited Projects</li>
                             <li>500 GB Storage</li>
-                            <li>24/7 Support</li>
+                            <li>VIP Support</li>
                             <li>Unlimited Users</li>
+                            <li>Dedicated Resources</li>
                         </ul>
                         <div class="text-center price-btn">
-                            <a href="#" class="btn   btn-custom">Choose Plan</a>
+                            <a href="#" class="btn btn-dark">Choose Plan</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card pricing-card h-100">
-                    <div class="card-header pricing-header enterprise-header p-4">
-                        <h3 class="card-title text-center mb-0">Extra Enterprise</h3>
-                    </div>
-                    <div class="card-body p-4">
-                        <h2 class="card-title text-center mb-4">$99<small class="text-muted">/mo</small></h2>
-                        <ul class="feature-list text-center mb-4">
-                            <li>Unlimited Projects</li>
-                            <li>500 GB Storage</li>
-                            <li>24/7 Support</li>
-                            <li>Unlimited Users</li>
-                        </ul>
-                        <div class="text-center price-btn">
-                            <a href="#" class="btn   btn-custom">Choose Plan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
+</div>
+
+<!--key features-->
+<section class="feature-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Key Features of Hosto</h2>
+            <p class="lead text-muted">Discover what makes Hosto the perfect solution for your needs</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-speedometer2"></i>
+                        <h4 class="card-title">Blazing Fast Speed</h4>
+                        <p class="card-text">Optimized servers with SSD storage ensure your websites load in milliseconds.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-shield-lock"></i>
+                        <h4 class="card-title">Military-Grade Security</h4>
+                        <p class="card-text">Advanced firewalls, DDoS protection, and free SSL certificates included.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-phone"></i>
+                        <h4 class="card-title">Mobile Optimization</h4>
+                        <p class="card-text">Automatic mobile optimization for all your websites and applications.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-database"></i>
+                        <h4 class="card-title">99.9% Uptime</h4>
+                        <p class="card-text">Guaranteed reliability with our premium network infrastructure.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-headset"></i>
+                        <h4 class="card-title">24/7 Support</h4>
+                        <p class="card-text">Our expert team is available round the clock to assist you.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-arrow-repeat"></i>
+                        <h4 class="card-title">Daily Backups</h4>
+                        <p class="card-text">Automatic daily backups to protect your valuable data.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-globe2"></i>
+                        <h4 class="card-title">Global Data Centers</h4>
+                        <p class="card-text">Choose from multiple locations worldwide for optimal performance.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card card p-4 text-center h-100">
+                    <div class="card-body">
+                        <i class="feature-icon bi bi-graph-up"></i>
+                        <h4 class="card-title">Easy Scaling</h4>
+                        <p class="card-text">Upgrade your resources with just one click as your business grows.</p>
+                        <a href="#" class="btn btn-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--footer-->
+<div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5  border-top">
+        <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+               <p class="h1"> Hosto</p>
+            </a>
+            <p class="text-body-secondary">© 2025</p>
+        </div>
+
+        <div class="col mb-3">
+
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+            </ul>
+        </div>
+    </footer>
 </div>
 
 
@@ -196,5 +346,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
         integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
