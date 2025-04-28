@@ -1,9 +1,45 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="874" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1249" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="WY8khQuphSF256y5LdHn-4" value="&lt;b&gt;&lt;font&gt;1 NF&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="70" y="130" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-6" value="&lt;div&gt;EmployeeProject(#EmpNo, EmpName, Dept, DeptManager, ProjStartDate, WeeksOnProject)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px; text-wrap-mode: wrap;&quot;&gt;Emp_Proj(#EmpNo, *ProjID, WeeksOnProject)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px; text-wrap-mode: wrap;&quot;&gt;ProjectLocation(*ProjID, #Location)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px; text-wrap-mode: wrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px; text-wrap-mode: wrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="100" y="160" width="600" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-7" value="&lt;b&gt;&lt;font&gt;2 NF&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="70" y="270" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-10" value="&lt;b&gt;&lt;font&gt;3 NF&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="70" y="520" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-12" value="Employee(#EmpNo, EmpName, *Dept)&#xa;&#xa;Department(#Dept, DeptManager)&#xa;&#xa;Project(#ProjID, ProjStartDate)&#xa;&#xa;Emp_Proj(#EmpNo, *ProjID, WeeksOnProject)&#xa;&#xa;ProjectLocation(*ProjID, #Location)" style="text;whiteSpace=wrap;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="100" y="310" width="670" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-13" value="Employee(#EmpNo, EmpName, *Dept)&#xa;&#xa;Department(#Dept, DeptManager)&#xa;&#xa;Project(#ProjID, ProjStartDate)&#xa;&#xa;Emp_Proj(#EmpNo, *ProjID, WeeksOnProject)&#xa;&#xa;ProjectLocation(*ProjID, #Location)" style="text;whiteSpace=wrap;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="110" y="570" width="670" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-14" value="&lt;b&gt;&lt;font&gt;1 NF&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="97.5" y="1210" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-16" value="&lt;b&gt;&lt;font&gt;2 NF&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="107.5" y="1430" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-18" value="&lt;b&gt;&lt;font&gt;3 NF&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="117.5" y="1680" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-21" value="StudentCourses(#app_no, first_name, last_name, parent_name, city, postal_code, birth_date, &#xa;               phone, course_id, course_desc, attended_days)" style="text;whiteSpace=wrap;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="117.5" y="1310" width="692.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-23" value="Student(#app_no, first_name, last_name, parent_name, city, postal_code, birth_date)&#xa;&#xa;StudentPhone(#app_no, #phone)&#xa;&#xa;Course(#course_id, course_desc)&#xa;&#xa;Enrollment(*#app_no, *#course_id, attended_days)&#xa;" style="text;whiteSpace=wrap;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="115" y="1500" width="640" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="WY8khQuphSF256y5LdHn-24" value="Student(#app_no, first_name, last_name, parent_name, *postal_code, birth_date)&#xa;&#xa;StudentPhone(#app_no, #phone)&#xa;&#xa;CityPostal(#postal_code, city)&#xa;&#xa;Course(#course_id, course_desc)&#xa;&#xa;Enrollment(*#app_no, *#course_id, attended_days)" style="text;whiteSpace=wrap;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="128.75" y="1740" width="670" height="190" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
