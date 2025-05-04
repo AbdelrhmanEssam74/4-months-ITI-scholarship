@@ -5,7 +5,7 @@
 ## 📖 About This Repository
 This repository contains daily lab exercises and projects from my **4-month ITI scholarship** journey. Each day's work is organized systematically to track progress and enhance learning.
 
-Each day will have::
+Each day will have:
 - ✅ Code files
 - ✅ Any additional resources
 
