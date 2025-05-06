@@ -7,7 +7,7 @@ const filePath = path.join(folderPath, 'test.txt');
 if (!handler.existsSync(folderPath)) {
     handler.mkdirSync(folderPath);
 }
-handler.writeFile(filePath, 'Node.js', (err) => {
+handler.writeFile(filePath, 'welcome from node file', (err) => {
     if (err) {
         console.error('Error:', err);
     } else {
