@@ -8,5 +8,4 @@ const {validationRules} = require('../middleware/validateContact');
 router.get('/contact', controller.contactUs);
 router.post('/contact', validationRules, controller.validate);
 
-
 module.exports = router;
