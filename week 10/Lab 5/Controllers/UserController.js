@@ -53,3 +53,14 @@ async function storeUserMessage(userMessageObj) {
         return 0;
     }
 }
+
+
+exports.getAllMessages = async (req, res) => {
+    try {
+        const [rows] = await db.promise().query('SELECT * FROM `ContactMessages` ORDER BY `createdAt` DESC');
+        res.render('messages', { messages: rows });
+    } catch (err) {
+        console.error('Error fetching messages:', err);
+        res.status(500).send('Failed to fetch messages');
+    }
+};
