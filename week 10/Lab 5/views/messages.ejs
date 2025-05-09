@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Messages</title>
+    <style>
+        table, th, td {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        th {
+            cursor: pointer;
+        }
+        th:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<h2>Admin - All Messages</h2>
+<table id="messageTable">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th >Email</th>
+        <th>Message</th>
+        <th>Created At</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% messages.forEach(function(message) { %>
+        <tr>
+            <td><%= message.username %></td>
+            <td><%= message.email %></td>
+            <td><%= message.message %></td>
+            <td><%= new Date(message.createdAt).toLocaleString() %></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+</script>
+</body>
+</html>
