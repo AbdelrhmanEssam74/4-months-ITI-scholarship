@@ -12,6 +12,7 @@ exports.contactUs = (req, res) => {
     });
 };
 
+
 exports.validate = (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -29,25 +30,26 @@ exports.validate = (req, res) => {
             message: req.body.message
         }
         // Store the user message in the database
-        storeUserMessage(userMessage);
-        res.render('contact', {
-            success: 'Message sent successfully',
-            errors: [],
-            username: '',
-            email: '',
-            message: ''
-        });
+        if (storeUserMessage(userMessage)) {
+            return res.render('thankyou', {
+                success: 'Your message has been sent successfully.',
+                username: req.body.username,
+                email: req.body.email,
+                message: req.body.message
+            });
+        }
     }
 }
 
-function storeUserMessage(userMessageObj) {
-    const sql = 'INSERT INTO `ContactMessages`  (`username`, `email`, `message`) VALUES (?, ?, ?)';
+async function storeUserMessage(userMessageObj) {
+    const sql = 'INSERT INTO `ContactMessages` (`username`, `email`, `message`) VALUES (?, ?, ?)';
     const values = [userMessageObj.username, userMessageObj.email, userMessageObj.message];
 
-    db.query(sql, values, (err, result) => {
-        if (err) {
-            return 0;
-        }
+    try {
+        await db.promise().query(sql, values);
         return 1;
-    });
+    } catch (err) {
+        console.error('Database error:', err);
+        return 0;
+    }
 }
