@@ -10,6 +10,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(router)
 
-app.listen(3000, () => {
-    console.log('Server is running at http://localhost:3000/contact');
+app.listen(7000, () => {
+    console.log('Server is running at http://localhost:7000/contact');
 })
