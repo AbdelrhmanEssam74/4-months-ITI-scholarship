@@ -1,0 +1,68 @@
+.portfolio {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.main-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #212529;
+  position: relative;
+}
+
+.main-title h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #0d6efd;
+  margin: 15px auto 0;
+}
+
+.widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.widgets > div {
+  padding: 60px 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.widgets > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.gray {
+  background-color: #6c757d;
+}
+
+.dark-gray {
+  background-color: #495057;
+}
+
+@media (max-width: 768px) {
+  .widgets {
+    grid-template-columns: 1fr;
+  }
+
+  .main-title h2 {
+    font-size: 2rem;
+  }
+}
