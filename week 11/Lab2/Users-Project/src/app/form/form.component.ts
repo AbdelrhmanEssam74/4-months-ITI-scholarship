@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import {SearchIcon} from 'primeng/icons';
+import {FormsModule} from '@angular/forms';
 @Component({
   selector: 'app-form',
   imports: [
-    SearchIcon
+    FormsModule
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
 export class FormComponent {
-
+  searchQuery: string = '';
+  onSearch(event: Event): void {
+    event.preventDefault();
+  }
 }

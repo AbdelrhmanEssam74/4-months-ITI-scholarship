@@ -1,0 +1,9 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.input-group {
+  max-width: 400px;
+  width: 100%;
+}
