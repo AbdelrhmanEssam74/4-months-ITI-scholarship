@@ -1,0 +1,6 @@
+<form class="search-form" (submit)="onSearch($event)">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search users..." [(ngModel)]="searchQuery" name="query">
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </div>
+</form>
