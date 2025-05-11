@@ -1,7 +1,11 @@
-.container{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.container {
+  padding: 20px;
+}
+
+.users-list {
+  margin-top: 20px;
+}
+
+form {
+  margin-bottom: 20px;
 }

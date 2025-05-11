@@ -12,9 +12,5 @@ import { FormComponent } from './form/form.component';
 })
 export class AppComponent {
   title = 'Users-Project';
-  users: any[] = userData;
-
-  ngOnInit() {
-    console.log('Loaded users:', this.users);
-  }
+  users = userData;
 }
