@@ -1,0 +1,22 @@
+<div *ngIf="users.length; else emptyList" class="users-list">
+  <div class="list-container">
+    <div class="card mb-3 shadow-sm" *ngFor="let user of users">
+      <div class="card-body text-center">
+        <div class="img-container">
+          <img [src]="user.image" alt="{{ user.firstName }}">
+        </div>
+        <span class="badge text-bg-{{ user.role | lowercase }} mb-2">{{ user.role }}</span>
+        <div class="card-text">
+          <p class="text-center fw-bolder"> {{ user.username }}</p>
+          <p> <span class="fw-bold"> Email : </span> {{ user.email }} </p>
+          <p><span class="fw-bold"> Phone : </span> {{ user.phone }}</p>
+          <p><span class="fw-bold"> BirthDate : </span> {{ user.birthDate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyList>
+  <p>No users available.</p>
+</ng-template>

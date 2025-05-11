@@ -1,6 +1,98 @@
-.circle {
-  display: flex;
-  align-items: center;
+.users-list {
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   justify-content: center;
-  background-color: #f0f0f0;
+}
+
+.card {
+  border: 2px solid #9bb;
+  border-radius: 15px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-text {
+  text-align: left;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.img-container img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+.card .badge {
+  width: fit-content;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.card .badge.text-bg-admin {
+  background-color: #f44336;
+  color: white;
+}
+
+.card .badge.text-bg-user {
+  background-color: #4caf50;
+  color: white;
+}
+
+.card .badge.text-bg-moderator {
+  background-color: #ffc107;
+  color: black;
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+  .list-container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .card {
+    margin: 0 auto;
+  }
+
+  .card .badge {
+    font-size: 0.8rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .list-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+  }
+
+  .img-container img {
+    height: 60px;
+    width: 60px;
+  }
 }
