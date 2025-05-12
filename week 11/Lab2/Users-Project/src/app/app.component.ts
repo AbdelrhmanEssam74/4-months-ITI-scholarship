@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import userData from '../data/users.json';
 import { UserCardComponent } from './user-card/user-card.component';
 import { FormComponent } from './form/form.component';
 
@@ -12,5 +11,4 @@ import { FormComponent } from './form/form.component';
 })
 export class AppComponent {
   title = 'Users-Project';
-  users = userData;
 }
