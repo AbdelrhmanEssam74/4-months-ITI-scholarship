@@ -1,22 +1,25 @@
-<div *ngIf="users.length; else emptyList" class="users-list">
-  <div class="list-container">
-    <div class="card mb-3 shadow-sm" *ngFor="let user of users">
-      <div class="card-body text-center">
-        <div class="img-container">
-          <img [src]="user.image" alt="{{ user.firstName }}">
+@if (users.length) {
+  <div class="users-list">
+    <div class="list-container">
+      @for (user of users; track user.id) {
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body text-center">
+            <div class="img-container">
+              <img [src]="user.image" alt="">
+            </div>
+            <span class="badge text-bg-{{ user.role | lowercase }} mb-2">{{ user.role }}</span>
+            <div class="card-text">
+              <p class="text-center fw-bolder"> {{ user.username }}</p>
+              <p><span class="fw-bold"> Email : </span> {{ user.email }} </p>
+              <p><span class="fw-bold"> Phone : </span> {{ user.phone }}</p>
+              <p><span class="fw-bold"> BirthDate : </span> {{ user.birthDate }}</p>
+            </div>
+          </div>
         </div>
-        <span class="badge text-bg-{{ user.role | lowercase }} mb-2">{{ user.role }}</span>
-        <div class="card-text">
-          <p class="text-center fw-bolder"> {{ user.username }}</p>
-          <p> <span class="fw-bold"> Email : </span> {{ user.email }} </p>
-          <p><span class="fw-bold"> Phone : </span> {{ user.phone }}</p>
-          <p><span class="fw-bold"> BirthDate : </span> {{ user.birthDate }}</p>
-        </div>
-      </div>
+      }
     </div>
   </div>
-</div>
-
-<ng-template #emptyList>
+} @else {
   <p>No users available.</p>
-</ng-template>
+}
+
