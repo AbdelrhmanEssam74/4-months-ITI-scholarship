@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-completed-tasks',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './completed-tasks.component.css'
 })
 export class CompletedTasksComponent {
+  @Input() taskItem: any;
+  @Output() deleteTaskFromParent = new EventEmitter<number>()
+
+  handelDeleteTask(id: any) {
+    this.deleteTaskFromParent.emit(id)
+  }
 
 }
