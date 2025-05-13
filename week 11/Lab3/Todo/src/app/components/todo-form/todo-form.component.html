@@ -1,0 +1,6 @@
+<form id="todo-form">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="todo-input" placeholder="Add new task" #newTask required>
+    <button class="btn btn-primary" type="submit" (click)="handelAddTask(newTask.value)">Add</button>
+  </div>
+</form>

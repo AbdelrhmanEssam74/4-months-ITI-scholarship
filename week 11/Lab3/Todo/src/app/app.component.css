@@ -1,0 +1,11 @@
+.todo-completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.todo-actions i {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.todo-actions i:hover {
+  color: #000;
+}
