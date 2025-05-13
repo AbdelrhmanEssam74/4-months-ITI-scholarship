@@ -5,7 +5,11 @@
       <div class="card shadow-sm">
         <div class="card-body">
           <app-todo-form></app-todo-form>
-          <app-todo-list></app-todo-list>
+          <ul class="list-group">
+            @for (todo of todos; track todo.id){
+              <app-todo-list [taskItem]="todo"></app-todo-list>
+            }
+          </ul>
         </div>
       </div>
     </div>
