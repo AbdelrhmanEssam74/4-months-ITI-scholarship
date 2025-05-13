@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-todo-form',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './todo-form.component.css'
 })
 export class TodoFormComponent {
+@Output() sendTaskToParent = new EventEmitter<string>()
 
+  handelAddTask(text: string){
+  this.sendTaskToParent.emit(text)
+  }
 }
