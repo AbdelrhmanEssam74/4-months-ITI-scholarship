@@ -18,4 +18,14 @@ export class TodoWrapperComponent {
     {id: 2, text: 'Build a To-do App', completed: true},
     {id: 3, text: 'Deploy the App', completed: false}
   ];
+
+  addTask(newTask: string) {
+    let newIndex = this.todos.length + 1
+    let task = {
+      id: newIndex,
+      text: newTask,
+      completed: false
+    }
+    this.todos.push(task)
+  }
 }
