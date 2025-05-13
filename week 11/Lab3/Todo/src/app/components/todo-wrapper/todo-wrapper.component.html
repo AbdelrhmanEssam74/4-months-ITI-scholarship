@@ -7,7 +7,9 @@
           <app-todo-form (sendTaskToParent)="addTask($event)"></app-todo-form>
           <ul class="list-group">
             @for (todo of todos; track todo.id) {
-              <app-todo-list (deleteTaskFromParent)="deleteTask(todo.id)" [taskItem]="todo"></app-todo-list>
+              @if (!todo.completed) {
+                <app-todo-list (deleteTaskFromParent)="deleteTask(todo.id)" (completedTask)="completeTask(todo.id)" [taskItem]="todo"></app-todo-list>
+              }
             }
           </ul>
         </div>
@@ -16,7 +18,12 @@
         <div class="card-body">
           <h2 class="text-center mb-4">Completed Tasks</h2>
           <ul class="list-group">
-        <app-completed-tasks></app-completed-tasks>
+            @for (todo of todos; track todo.id) {
+              @if (todo.completed) {
+                <app-completed-tasks (deleteTaskFromParent)="deleteTask(todo.id)" [taskItem]="todo" ></app-completed-tasks>
+              }
+            }
+
           </ul>
         </div>
       </div>
