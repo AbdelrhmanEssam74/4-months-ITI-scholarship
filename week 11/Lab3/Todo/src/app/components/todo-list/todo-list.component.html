@@ -4,7 +4,7 @@
     <button data-id="{{taskItem.id}}" class="btn btn-sm btn-success">
       <i class="fas fa-check"></i>
     </button>
-    <button data-id="{{taskItem.id}}" class="btn btn-sm btn-danger">
+    <button data-id="{{taskItem.id}}" (click)="handelDeleteTask(taskItem.id)" class="btn btn-sm btn-danger">
       <i class="fas fa-trash-alt"></i>
     </button>
   </div>

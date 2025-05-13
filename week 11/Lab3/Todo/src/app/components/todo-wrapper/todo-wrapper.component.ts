@@ -2,12 +2,14 @@ import {Component} from '@angular/core';
 import {TodoListComponent} from '../todo-list/todo-list.component';
 import {TodoFormComponent} from '../todo-form/todo-form.component';
 import {Todo} from '../../interface/todo';
+import {CompletedTasksComponent} from '../completed-tasks/completed-tasks.component';
 
 @Component({
   selector: 'app-todo-wrapper',
   imports: [
     TodoListComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    CompletedTasksComponent
   ],
   templateUrl: './todo-wrapper.component.html',
   styleUrl: './todo-wrapper.component.css'
@@ -27,5 +29,8 @@ export class TodoWrapperComponent {
       completed: false
     }
     this.todos.push(task)
+  }
+  deleteTask(id:any){
+    this.todos = this.todos.filter((task) => task.id != id)
   }
 }
