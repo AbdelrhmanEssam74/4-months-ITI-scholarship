@@ -1,4 +1,4 @@
-import { Component , Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,4 +8,12 @@ import { Component , Input} from '@angular/core';
 })
 export class TodoListComponent {
   @Input() taskItem: any;
+  @Output() deleteTaskFromParent = new EventEmitter<number>()
+  handelDeleteTask(id:any){
+    this.deleteTaskFromParent.emit(id)
+  }
+  @Output() completedTask = new EventEmitter<number>()
+  handelCompletedTask(id:any){
+    this.completedTask.emit(id)
+  }
 }
