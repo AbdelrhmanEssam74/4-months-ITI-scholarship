@@ -12,4 +12,8 @@ export class TodoListComponent {
   handelDeleteTask(id:any){
     this.deleteTaskFromParent.emit(id)
   }
+  @Output() completedTask = new EventEmitter<number>()
+  handelCompletedTask(id:any){
+    this.completedTask.emit(id)
+  }
 }
