@@ -1,0 +1,22 @@
+<div class="product-card">
+  <span
+    [ngClass]="product.stock === 0 ? 'badge badge-status bg-danger' : 'badge badge-status bg-success'">
+    {{ product.stock === 0 ? 'Out of stock' : 'In stock' }}
+  </span>
+  <img [src]="product.images[0]" alt="{{ product.title }}" class="product-image" />
+
+  <div class="product-header">
+    <div class="product-title">{{ product.title }}</div>
+    <div class="product-price">${{ product.price }}</div>
+  </div>
+
+  <div class="product-desc">{{ product.description }}</div>
+
+  <div class="star-rating text-warning mb-2">
+    @for (star of  getStarArray(product.rating); track star){
+      {{ star }}
+    }
+  </div>
+
+  <button class="btn btn-outline-dark btn-add">Add to Cart</button>
+</div>
