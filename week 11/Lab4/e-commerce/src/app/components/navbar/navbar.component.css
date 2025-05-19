@@ -1,0 +1,6 @@
+.active-link {
+  background-color: #2b2d42;
+  color: white;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
