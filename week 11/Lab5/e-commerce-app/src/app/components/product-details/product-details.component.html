@@ -1,0 +1,37 @@
+<div class="container my-5">
+  <div class="row g-5">
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <img [src]="product.images[0]" alt="{{ product.title }}"
+           class="img-fluid rounded shadow-lg w-75" />
+    </div>
+
+    <div class="col-md-6">
+      <h2 class="fw-bold mb-3">{{ product.title }}</h2>
+      <span class="badge bg-secondary mb-2 text-capitalize">{{ product.category }}</span>
+      <p class="text-muted fst-italic">by {{ product.brand }}</p>
+
+      <div class="mb-3">
+        @for (start of getStars(product.rating); track start) {
+          <span class="text-warning fs-5">★</span>
+        }
+        <span class="text-muted ms-2">({{ product.rating }})</span>
+      </div>
+
+      <h4 class="text-success fw-bold">
+        {{ product.price | currency: 'EGP':'symbol':'1.2-2' }}
+      </h4>
+
+      <p class="mt-4 lh-lg">{{ product.description }}</p>
+
+      <div class="d-flex gap-3 mt-5">
+        <button class="btn btn-primary btn-lg d-flex align-items-center gap-2">
+          <i class="bi bi-cart-plus-fill"></i>
+          Add to Cart
+        </button>
+        <a routerLink="/home" class="btn btn-outline-dark btn-lg">
+          ← Back to Shop
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
