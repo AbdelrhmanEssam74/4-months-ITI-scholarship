@@ -13,7 +13,7 @@ echo "<h2>Point 1</h2>";
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Student Table</title>
+        <title>table</title>
         <link rel="stylesheet" href="style.css">
     <body>
     <table border='1'>
@@ -31,7 +31,13 @@ echo "<h2>Point 1</h2>";
             echo "<td>" . $student['age'] . "</td>";
             echo "<td>" . $student['email'] . "</td>";
             echo "<td><img src='images/" . $student['image'] . "' alt='" . $student['name'] . "' width='50' height='50'></td>";
-            echo "<td>" . implode(", ", $student['skills']) . "</td>";
+            echo "<td>";
+            echo '<ul>';
+            foreach ($student['skills'] as $skill) {
+                echo "<li class='skill'>" . $skill . "</li>";
+            }
+            echo '</ul>';
+            echo "</td>";
             echo "</tr>";
         }
         ?>
@@ -54,6 +60,12 @@ print_r($array2);
 echo "</pre>";
 rsort($array1);
 rsort($array2);
+echo "<pre>";
+print_r($array1);
+print_r($array2);
+echo "</pre>";
+ksort($array1);
+ksort($array2);
 echo "<pre>";
 print_r($array1);
 print_r($array2);
