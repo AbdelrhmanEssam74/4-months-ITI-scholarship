@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Register</h1>
+    <form action="submit.php" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name"  >
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name"  >
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"  >
+        </div>
+        <div class="input-group">
+            <label for="country">Country:</label>
+            <select id="country" name="country"  >
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">UK</option>
+                <option value="Australia">Australia</option>
+            </select>  
+        </div>
+
+        <div class="input-group">
+            <label for="">Gender</label>
+            <input type="radio" name="gender" value="male" id="male"> Male
+            <input type="radio" name="gender" value="female" id="female"> Female
+        </div>
+        <div class="input-group">
+            <label for="">Skills:</label> 
+            <div class="skills">
+                <input type="checkbox" name="skills[]" value="HTML"> HTML
+                <input type="checkbox" name="skills[]" value="CSS"> CSS
+                <input type="checkbox" name="skills[]" value="JavaScript"> JavaScript
+                <input type="checkbox" name="skills[]" value="PHP"> PHP
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"  >  
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"  >  
+        </div>
+        <div class="input-group">
+            <label for="department">Department:</label>
+            <input type="text" name="department" id="department"  placeholder="Open Source">
+        </div>
+        <div class="input-group">
+            <p>Sh68So</p>
+            <input type="text" name="captcha" id="captcha" placeholder="Enter the code above">
+            <span>Please insert the code the below box </span>
+        </div>
+        <div class="input-group">
+            <label for="images">Upload Images:</label>
+            <input type="file" id="images" name="images[]" multiple accept="image/*">
+        </div>
+        <div class="input-group-btn">
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </div>
+       
+    </form>
+</div>
+</body>
+</html>
