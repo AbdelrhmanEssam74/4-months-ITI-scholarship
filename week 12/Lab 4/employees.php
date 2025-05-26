@@ -3,9 +3,6 @@ $page = 'Employees';
 include 'includes/header.php';
 include 'db/db_connection.php';
 
-
-
-
 // Fetch employees with department names
 $stmt = $conn->prepare("
     SELECT e.*, d.department_name 
@@ -30,15 +27,23 @@ $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="card border-0 shadow-sm">
             <div class="card-body">
+                <?php if (!empty($_SESSION['not-found'])): ?>
+                    <div class="col-12 mb-4">
+                        <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['not-found']) ?></div>
+                    </div>
+                    <?php unset($_SESSION['not-found']); ?>
+                <?php endif; ?>
                 <?php if (!empty($_SESSION['success'])): ?>
                     <div class="col-12 mb-4">
                         <div class="alert alert-success"><?= htmlspecialchars($_SESSION['success']) ?></div>
                     </div>
                     <?php unset($_SESSION['success']); ?>
                 <?php endif; ?>
-                <?php if (!empty($_SESSION['danger'])): ?>
+                <?php if (!empty($_SESSION['danger']) || !empty($_SESSION['failed']) ): ?>
                     <div class="col-12 mb-4">
-                        <div class="alert alert-warning"><?= htmlspecialchars($_SESSION['danger']) ?></div>
+                        <div class="alert alert-warning"><?= htmlspecialchars($_SESSION['danger'])
+                            ?: htmlspecialchars($_SESSION['failed'])
+                            ?></div>
                     </div>
                     <?php unset($_SESSION['danger']); ?>
                 <?php endif; ?>
@@ -59,9 +64,8 @@ $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <?php foreach ($employees as $emp): ?>
                             <?php
 
-                            // Profile picture or avatar fallback URL
                             $profilePic = !empty($emp['profile_picture'])
-                                ? 'assets/uploads/' . htmlspecialchars($emp['profile_picture'])
+                                ?  htmlspecialchars($emp['profile_picture'])
                                 : 'https://ui-avatars.com/api/?name=' . urlencode($emp['first_name'] . ' ' . $emp['last_name']) . '&background=999&color=fff';
                             ?>
                             <tr>
@@ -87,8 +91,8 @@ $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                            class="btn btn-sm btn-light">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="delete-employee.php?id=<?= $emp['employee_id'] ?>"
-                                           class="btn btn-sm btn-light" onclick="return confirm('Are you sure?')">
+                                        <a href="backend/delete-emp.php?id=<?= $emp['employee_id'] ?>"
+                                           class="btn btn-sm btn-light">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>

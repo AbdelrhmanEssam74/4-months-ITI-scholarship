@@ -28,7 +28,7 @@ $departments = $dept_stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="container-fluid pt-5">
     <h1 class="mb-4">Edit Employee</h1>
-    <form action="backend/update-employee.php" method="post">
+    <form action="backend/update-employee.php" enctype="multipart/form-data" method="post">
         <input type="hidden" name="employee_id" value="<?= $employee['employee_id'] ?>">
 
         <div class="row g-3">
@@ -103,6 +103,12 @@ $departments = $dept_stmt->fetchAll(PDO::FETCH_ASSOC);
                 <label class="form-label">Country</label>
                 <input type="text" name="country" class="form-control" value="<?= htmlspecialchars($employee['country']) ?>">
                 <span class="text-danger"><?= $errors['country'] ?? '' ?></span>
+            </div>
+            <div class="col-md-12">
+                <label for="profilePhoto" class="form-label">Update Profile Photo</label>
+                <input type="hidden" name="old_image" value="<?= htmlspecialchars($employee['profile_picture']) ?>">
+                <input class="form-control" type="file" id="profilePhoto" name="new_image" accept="image/*">
+                <span class="text-danger"><?= $errors['profilePhoto'] ?? '' ?></span>
             </div>
         </div>
 
