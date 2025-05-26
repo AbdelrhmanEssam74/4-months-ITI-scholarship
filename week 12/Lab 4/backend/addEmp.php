@@ -24,11 +24,16 @@ $salary     = clean($_POST['salary'] ?? '');
 $address    = clean($_POST['streetAddress'] ?? '');
 $city       = clean($_POST['city'] ?? '');
 $country    = clean($_POST['country'] ?? '');
-$profilePhoto = null; // default
+$profilePhoto = null;
 
-// Basic Validation
+
 if (empty($first_name)) $errors['firstName'] = "First name is required.";
 if (empty($last_name)) $errors['lastName'] = "Last name is required.";
+
+if (strlen($first_name) < 4 ) $errors['firstName'] = "First name must be at least 4 characters.";
+if (strlen($last_name) < 4) $errors['lastName'] = "Last name must be at least 4 characters.";
+
+
 
 if (empty($email)) {
     $errors['email'] = "Email is required.";
@@ -50,8 +55,12 @@ elseif (!is_numeric($salary) || $salary < 0) $errors['salary'] = "Salary must be
 if (empty($address)) $errors['streetAddress'] = "Address is required.";
 if (empty($city)) $errors['city'] = "City is required.";
 if (empty($country)) $errors['country'] = "Country is required.";
+if (!empty($dob) && !strtotime($dob)) {
+    $errors['dob'] = "Invalid date of birth.";
+} elseif (strtotime($dob) > strtotime('now')) {
+    $errors['dob'] = "Date of birth cannot be in the future.";
+}
 
-// Handle file upload
 if (!empty($_FILES['profilePhoto']['name']) && $_FILES['profilePhoto']['error'] == 0) {
     $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
     if (!in_array($_FILES['profilePhoto']['type'], $allowedTypes)) {
@@ -69,10 +78,8 @@ if (!empty($_FILES['profilePhoto']['name']) && $_FILES['profilePhoto']['error'] 
     }
 }
 
-// Redirect if errors
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    $_SESSION['old'] = $_POST;
     header("Location: ../add-employee.php");
     exit;
 }
