@@ -2,8 +2,7 @@
 include 'includes/header.php';
 
 $errors = $_SESSION['errors'] ?? [];
-$old = $_SESSION['old'] ?? [];
-unset($_SESSION['errors'], $_SESSION['old']);
+unset($_SESSION['errors']);
 $page = 'Add Employee';
 
 ?>
@@ -28,27 +27,27 @@ $page = 'Add Employee';
                                 <!-- Personal Information -->
                                 <div class="col-md-6">
                                     <label for="firstName" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName" value="<?= htmlspecialchars($old['firstName'] ?? '') ?>"   >
+                                    <input type="text" class="form-control" id="firstName" name="firstName" value=""   >
                                     <span class="text-danger"><?= $errors['firstName'] ?? '' ?></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="lastName" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName" value="<?= htmlspecialchars($old['lastName'] ?? '') ?>"   >
+                                    <input type="text" class="form-control" id="lastName" name="lastName" value=""   >
                                     <span class="text-danger"><?= $errors['lastName'] ?? '' ?></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="<?= htmlspecialchars($old['email'] ?? '') ?>"   >
+                                    <input type="email" class="form-control" id="email" name="email" value=""   >
                                     <span class="text-danger"><?= $errors['email'] ?? '' ?></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" value="<?= htmlspecialchars($old['phone'] ?? '') ?>">
+                                    <input type="tel" class="form-control" id="phone" name="phone" value="">
                                     <span class="text-danger"><?= $errors['phone'] ?? '' ?></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="dob" class="form-label">Date of Birth</label>
-                                    <input type="date" class="form-control" id="dob" name="dob" value="<?= htmlspecialchars($old['dob'] ?? '') ?>">
+                                    <input type="date" class="form-control" id="dob" name="dob" value="">
                                     <span class="text-danger"><?= $errors['dob'] ?? '' ?></span>
                                 </div>
                                 <div class="col-md-6">
@@ -67,7 +66,7 @@ $page = 'Add Employee';
                                     <label for="department" class="form-label">Department</label>
                                     <select class="form-select" id="department" name="department"   >
                                         <option value="">Select Department</option>
-                                        <option value="1" <?= ($old['department'] ?? '') === 'it' ? 'selected' : '' ?>>IT</option>
+                                        <option value="1">IT</option>
                                         <option value="2">Human Resources</option>
                                         <option value="3">Finance</option>
                                         <option value="4" >Marketing</option>

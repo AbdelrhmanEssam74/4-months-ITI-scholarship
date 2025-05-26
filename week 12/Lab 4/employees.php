@@ -3,6 +3,9 @@ $page = 'Employees';
 include 'includes/header.php';
 include 'db/db_connection.php';
 
+
+
+
 // Fetch employees with department names
 $stmt = $conn->prepare("
     SELECT e.*, d.department_name 
@@ -11,6 +14,7 @@ $stmt = $conn->prepare("
 ");
 $stmt->execute();
 $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
     <div class="container-fluid pt-5">
@@ -32,7 +36,12 @@ $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <?php unset($_SESSION['success']); ?>
                 <?php endif; ?>
-
+                <?php if (!empty($_SESSION['danger'])): ?>
+                    <div class="col-12 mb-4">
+                        <div class="alert alert-warning"><?= htmlspecialchars($_SESSION['danger']) ?></div>
+                    </div>
+                    <?php unset($_SESSION['danger']); ?>
+                <?php endif; ?>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -74,10 +83,12 @@ $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= date('d M Y', strtotime($emp['hire_date'])) ?></td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <a href="edit-employee.php?id=<?= $emp['employee_id'] ?>" class="btn btn-sm btn-light">
+                                        <a href="edit-employee.php?id=<?= $emp['employee_id'] ?>"
+                                           class="btn btn-sm btn-light">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="delete-employee.php?id=<?= $emp['employee_id'] ?>" class="btn btn-sm btn-light" onclick="return confirm('Are you sure?')">
+                                        <a href="delete-employee.php?id=<?= $emp['employee_id'] ?>"
+                                           class="btn btn-sm btn-light" onclick="return confirm('Are you sure?')">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
