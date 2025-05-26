@@ -30,7 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['name'];
     $_SESSION['user_email'] = $user['email'];
+    if ($user['role'] === 'admin') {
+        $_SESSION['user_role'] = 'admin';
+    } else {
+        $_SESSION['user_role'] = 'user';
+    }
 
     if (isset($_POST['remember'])) {
         setcookie('user_id', $user['id'], time() + (86400 * 100), "/");
