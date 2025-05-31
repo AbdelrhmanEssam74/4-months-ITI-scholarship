@@ -22,7 +22,7 @@ $page = 'Add Employee';
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
-                        <form id="addEmployeeForm" method="post" enctype="multipart/form-data" action="backend/addEmp.php">
+                        <form id="addEmployeeForm" method="post" enctype="multipart/form-data" action="src/backend/addEmp.php">
                             <div class="row g-3">
                                 <!-- Personal Information -->
                                 <div class="col-md-6">

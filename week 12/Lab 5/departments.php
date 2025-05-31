@@ -1,16 +1,11 @@
 <?php
 $page = 'Departments';
 include 'includes/header.php';
-include 'db/db_connection.php';  // Adjust this to your DB connection file
+require_once  'vendor/autoload.php';
 
-// Fetch departments data
-$stmt = $conn->prepare("SELECT d.department_id, d.department_name,  
-    COUNT(e.employee_id) AS items_count
-    FROM departments d
-    LEFT JOIN employees e ON d.department_id = e.department_id
-    GROUP BY d.department_id, d.department_name");
-$stmt->execute();
-$departments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+use Controllers\Department;
+$dpt = new Department();
+$departments = $dpt->read();
 ?>
 
 <div class="container-fluid pt-5">
@@ -38,7 +33,7 @@ $departments = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <th>Department Name</th>
                         <th>Count of Employees</th>
-                        <th>Actions</th>
+<!--                        <th>Actions</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -46,16 +41,16 @@ $departments = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <td><div class="fw-bold"><?= htmlspecialchars($dept['department_name']) ?></div></td>
                             <td><?= htmlspecialchars($dept['items_count']) ?></td>
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a href="edit-department.php?id=<?= $dept['department_id'] ?>" class="btn btn-sm btn-light">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="delete-department.php?id=<?= $dept['department_id'] ?>" class="btn btn-sm btn-light" onclick="return confirm('Are you sure?')">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </div>
-                            </td>
+<!--                            <td>-->
+<!--                                <div class="d-flex gap-2">-->
+<!--                                    <a href="edit-department.php?id=--><?php //= $dept['department_id'] ?><!--" class="btn btn-sm btn-light">-->
+<!--                                        <i class="fas fa-edit"></i>-->
+<!--                                    </a>-->
+<!--                                    <a href="delete-department.php?id=--><?php //= $dept['department_id'] ?><!--" class="btn btn-sm btn-light" onclick="return confirm('Are you sure?')">-->
+<!--                                        <i class="fas fa-trash"></i>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </td>-->
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
