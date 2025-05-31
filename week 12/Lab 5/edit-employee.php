@@ -1,7 +1,8 @@
 <?php
-include 'includes/header.php';
-include 'db/db_connection.php';
 
+include 'includes/header.php';
+require_once  'vendor/autoload.php';
+use Controllers\Employees;
 $errors = $_SESSION['errors'] ?? [];
 unset($_SESSION['errors']);
 
@@ -10,25 +11,28 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     exit;
 }
 
-$employee_id = (int) $_GET['id'];
+$employee_id = (int)$_GET['id'];
 
-// Fetch employee info
-$stmt = $conn->prepare("SELECT * FROM employees WHERE employee_id = ?");
-$stmt->execute([$employee_id]);
-$employee = $stmt->fetch(PDO::FETCH_ASSOC);
+use Controllers\Department;
+$dpt = new Department();
+$departments = $dpt->read();
 
+$employees = new Employees();
+$employee = $employees->read();
+foreach ($employee as $emp) {
+    if ($emp['employee_id'] == $employee_id) {
+        $employee = $emp;
+        break;
+    }
+}
 if (!$employee) {
     die("Employee not found.");
 }
-
-// Fetch departments for dropdown
-$dept_stmt = $conn->query("SELECT department_id, department_name FROM departments");
-$departments = $dept_stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="container-fluid pt-5">
     <h1 class="mb-4">Edit Employee</h1>
-    <form action="backend/update-employee.php" enctype="multipart/form-data" method="post">
+    <form action="src/backend/update-employee.php" enctype="multipart/form-data" method="post">
         <input type="hidden" name="employee_id" value="<?= $employee['employee_id'] ?>">
 
         <div class="row g-3">

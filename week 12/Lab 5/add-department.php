@@ -19,7 +19,7 @@ include 'includes/header.php';
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
-                        <form id="addDepartmentForm" action="backend/addDept.php" method="POST">
+                        <form id="addDepartmentForm" action="src/backend/addDept.php" method="POST">
                             <div class="mb-4">
                                 <h5 class="mb-3">Department Details</h5>
                                 <div class="row g-3">

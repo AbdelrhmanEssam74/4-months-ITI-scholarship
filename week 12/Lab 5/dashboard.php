@@ -1,16 +1,13 @@
 <?php
 include 'includes/header.php';
 $page = "Dashboard";
-include 'db/db_connection.php';
-$query = "SELECT count(*) FROM employees ";
-$stmt = $conn->prepare($query);
-$result = $stmt->execute();
-$employeeCount = $stmt->fetchColumn();
+require_once  'vendor/autoload.php';
+use Controllers\Employees;
 
-$query2 = "SELECT count(*) FROM departments ";
-$stmt2 = $conn->prepare($query2);
-$result2 = $stmt2->execute();
-$departmentCount = $stmt2->fetchColumn();
+$emp = new Employees();
+$employeeCount = count($emp->read());
+
+$departmentCount = 5;
 
 
 ?>

@@ -32,7 +32,7 @@ if (isset($_SESSION['user_id'])) {
             <p>Sign in to your account</p>
         </div>
 
-        <form action="auth/authenticate.php" method="POST">
+        <form action="src/backend/auth/authenticate.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" >

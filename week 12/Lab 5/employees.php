@@ -1,16 +1,12 @@
 <?php
+
+require_once  'vendor/autoload.php';
 $page = 'Employees';
 include 'includes/header.php';
-include 'db/db_connection.php';
+use Controllers\Employees;
+$employees = new Employees();
+$employees = $employees->read();
 
-// Fetch employees with department names
-$stmt = $conn->prepare("
-    SELECT e.*, d.department_name 
-    FROM employees e
-    JOIN departments d ON e.department_id = d.department_id
-");
-$stmt->execute();
-$employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -70,7 +66,7 @@ $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             ?>
                             <tr>
                                 <td>
-                                    <img src="<?= $profilePic ?>"
+                                    <img src="assets/uploads/<?= $profilePic ?>"
                                          class="rounded-circle"
                                          width="40" height="40"
                                          alt="<?= htmlspecialchars($emp['first_name'] . ' ' . $emp['last_name']) ?>">
@@ -91,7 +87,7 @@ $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                            class="btn btn-sm btn-light">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="backend/delete-emp.php?id=<?= $emp['employee_id'] ?>"
+                                        <a href="src/backend/delete-emp.php?id=<?= $emp['employee_id'] ?>"
                                            class="btn btn-sm btn-light">
                                             <i class="fas fa-trash"></i>
                                         </a>
