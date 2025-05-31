@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "src/Controllers/",
+            "Database\\": "src/database/",
+            "Interfaces\\": "src/interface/"
+        }
+    }
+}
