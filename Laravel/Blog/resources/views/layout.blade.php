@@ -84,7 +84,7 @@
             <div class="nav-links">
                 <a href="/">Home</a>
                 <a href="/articles">Articles</a>
-                <a href="#">Categories</a>
+                <a href="/categories">Categories</a>
                 <a href="#">About</a>
                 <a href="#">Contact</a>
             </div>
