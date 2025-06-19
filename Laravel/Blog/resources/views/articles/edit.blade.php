@@ -6,8 +6,9 @@
     <div class="container py-5">
         <h2 class="mb-4 text-primary">Edit Article</h2>
 
-        <form action="{{ route('articles.update', $article->id) }}" method="POST">
-            @csrf
+        <form action="{{ route('articles.update', $article->id) }}" method="POST" enctype="multipart/form-data">
+
+        @csrf
             @method('PUT')
 
             <div class="mb-3">
