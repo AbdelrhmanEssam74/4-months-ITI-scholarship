@@ -1,56 +1,65 @@
 @extends('layout')
-
+@section('header')
+    @include('partials.header')
+@endsection
 @section('title', $category->name)
 
 @section('content')
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <!-- Category Header -->
-                <div class="d-flex justify-content-between align-items-center mb-4">
+                <!-- Breadcrumb Navigation -->
+                <div class="d-flex justify-content-between al   ign-items-center mb-5">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Categories</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
+                        <ol class="breadcrumb bg-transparent p-0">
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-muted">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('categories.index') }}" class="text-muted">Categories</a></li>
+                            <li class="breadcrumb-item active text-dark" aria-current="page">{{ $category->name }}</li>
                         </ol>
                     </nav>
-                    <a href="{{ route('categories.index') }}" class="btn btn-outline-secondary rounded-pill">
+                    <a href="{{ route('categories.index') }}" class="btn btn-sm btn-link text-muted p-0">
                         <i class="bi bi-arrow-left me-1"></i> Back to Categories
                     </a>
                 </div>
 
                 <!-- Category Card -->
-                <div class="card border-0  overflow-hidden">
+                <div class="card border-0 bg-transparent">
                     @if($category->image)
-                        <div class="category-header-img" style="height: 300px; overflow: hidden;">
-                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class=" w-100 "
-                            style="
-                            object-fit: cover;
-                            "
-                            >
-
-                            class="img-fluid w-100 h-100 object-fit-cover"
-                                 alt="{{ $category->name }}">
-                            <div class="img-overlay"></div>
+                        <div class="category-image-container">
+                            <img src="{{ asset('storage/' . $category->image) }}"
+                                 alt="{{ $category->name }}"
+                                 class="category-image">
                             <div class="category-badge">
-                        <span class="badge bg-primary bg-opacity-75 px-3 py-2 rounded-pill fs-6">
-                            {{ $category->number_of_articles }} Articles
-                        </span>
+                                <span class="badge bg-dark bg-opacity-75 px-3 py-2">
+                                    {{ $category->number_of_articles }} Articles
+                                </span>
                             </div>
                         </div>
                     @endif
 
-                    <div class="card-body p-4 p-md-5">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h1 class="card-title display-5 fw-bold text-dark mb-0">{{ $category->name }}</h1>
+                    <div class="card-body px-0 pt-4">
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div>
+                                <h1 class="display-6 fw-normal mb-2">{{ $category->name }}</h1>
+                                <div class="text-muted small mb-3">
+                                    <span class="me-3">
+                                        <i class="bi bi-calendar me-1"></i>
+                                        Created {{ $category->created_at->format('M d, Y') }}
+                                    </span>
+                                    <span>
+                                        <i class="bi bi-arrow-repeat me-1"></i>
+                                        Updated {{ $category->updated_at->format('M d, Y') }}
+                                    </span>
+                                </div>
+                            </div>
+
                             <div class="dropdown">
-                                <button class="btn btn-sm btn-outline-secondary"
+                                <button class="btn btn-sm btn-link text-muted p-0"
                                         type="button"
                                         data-bs-toggle="dropdown">
-                                    <i class="fa-regular fa-ellipsis-vertical"></i>
+                                    <i class="bi bi-three-dots-vertical"></i>
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-end">
+                                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
                                     <li>
                                         <a class="dropdown-item" href="{{ route('categories.edit', $category->id) }}">
                                             <i class="bi bi-pencil me-2"></i>Edit
@@ -65,38 +74,18 @@
                                             </button>
                                         </form>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bi bi-share me-2"></i>Share
-                                        </a>
-                                    </li>
                                 </ul>
-
                             </div>
                         </div>
 
-                        <div class="d-flex align-items-center text-muted mb-4">
-                            <small class="me-3">
-                                <i class="bi bi-calendar me-1"></i>
-                                Created {{ $category->created_at->format('M d, Y') }}
-                            </small>
-                            <small>
-                                <i class="bi bi-arrow-repeat me-1"></i>
-                                Updated {{ $category->updated_at->format('M d, Y') }}
-                            </small>
-                        </div>
-
-                        <div class="card-text lead text-muted mb-4">
+                        <p class="lead text-muted mb-4">
                             {{ $category->description }}
-                        </div>
+                        </p>
 
-                        <div class="d-flex flex-wrap gap-2 mb-4">
-                        <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
-                            <i class="bi bi-bookmarks me-1"></i> Category
-                        </span>
-                            <span class="badge bg-success bg-opacity-10 text-success py-2 px-3">
-                            <i class="bi bi-collection me-1"></i> Collection
-                        </span>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-dark bg-opacity-5 text-light py-2 px-3 border-0">
+                                <i class="bi bi-bookmarks me-1"></i> {{ $category->name }}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -105,31 +94,69 @@
     </div>
 
     <style>
-        .category-header-img {
+        /* Minimalist Image Container */
+        .category-image-container {
             position: relative;
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border-radius: 0;
         }
-        .img-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
         .category-badge {
             position: absolute;
             bottom: 20px;
             right: 20px;
         }
-        .hover-lift {
-            transition: all 0.3s ease;
+
+        /* Custom Dropdown Styles */
+        .dropdown-menu {
+            min-width: 180px;
+            padding: 0.5rem 0;
         }
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
         }
-        .object-fit-cover {
-            object-fit: cover;
+
+        /* Minimalist Badges */
+        .badge {
+            font-weight: normal;
+            letter-spacing: 0.5px;
         }
+
     </style>
+
+    @if(isset($editForm))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const fileInput = document.getElementById('image');
+                if(fileInput) {
+                    const fileInputLabel = fileInput.nextElementSibling;
+                    const fileInputText = fileInputLabel.querySelector('.file-input-text');
+
+                    fileInput.addEventListener('change', function(e) {
+                        if (this.files.length) {
+                            fileInputText.textContent = this.files[0].name;
+                            fileInputText.style.color = '#212529';
+                        } else {
+                            fileInputText.textContent = 'No file chosen';
+                            fileInputText.style.color = '#6c757d';
+                        }
+                    });
+                }
+            });
+        </script>
+    @endif
+@endsection
+
+@section('footer')
+    @include('partials.footer')
 @endsection
