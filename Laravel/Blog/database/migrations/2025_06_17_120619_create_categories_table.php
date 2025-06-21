@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->text('description');
+            $table->string('category_author');
             $table->string('image')->nullable();
             $table->unsignedInteger('number_of_articles')->default(0);
             $table->timestamps();
