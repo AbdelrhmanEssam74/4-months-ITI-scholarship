@@ -118,20 +118,20 @@
                     <!-- Categories Widget -->
 
                     <!-- Recent Posts Widget -->
-                    <div class="recent-posts-widget widget-item">
+{{--                    <div class="recent-posts-widget widget-item">--}}
 
-                        <h3 class="widget-title">Recent Posts</h3>
-                        @foreach($articles as $article)
-                            <div class="post-item">
-                                <img src="{{ asset('storage/' . $article->image) }}" alt="" class="flex-shrink-0">
-                                <div>
-                                    <h4><a href="{{ url('/articles/' . $article->id) }}">{{$article->title}}</a></h4>
-                                    <time datetime="2020-01-01">
-                                        {{ date('M d, Y', strtotime($article->created_at)) }}
-                                    </time>
-                                </div>
-                            </div>
-                        @endforeach
+{{--                        <h3 class="widget-title">Recent Posts</h3>--}}
+{{--                        @foreach($articles as $article)--}}
+{{--                            <div class="post-item">--}}
+{{--                                <img src="{{ asset('storage/' . $article->image) }}" alt="" class="flex-shrink-0">--}}
+{{--                                <div>--}}
+{{--                                    <h4><a href="{{ url('/articles/' . $article->id) }}">{{$article->title}}</a></h4>--}}
+{{--                                    <time datetime="2020-01-01">--}}
+{{--                                        {{ date('M d, Y', strtotime($article->created_at)) }}--}}
+{{--                                    </time>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
                         <!-- End recent post item-->
 
 

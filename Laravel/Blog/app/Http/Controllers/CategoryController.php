@@ -12,7 +12,6 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::orderBy('created_at', 'DESC')->paginate(6);
-        $articles = Article::getLimitArticles(2);
         $tags = Article::all()->pluck('tags')->toArray();
         $allTags = [];
         foreach ($tags as $tagString) {
@@ -22,7 +21,6 @@ class CategoryController extends Controller
         $uniqueTags = array_unique($allTags);
         return view('categories.index', [
             'categories' => $categories,
-            'articles' => $articles,
             'tags' => $uniqueTags,
         ]);
     }
