@@ -1,132 +1,165 @@
 @extends('layout')
 
+@section('header')
+    @include('partials.header')
+@endsection
+
 @section('title', 'Categories')
 
 @section('content')
-    <div class="container-fluid bg-light py-5">
-        <!-- Hero Section -->
-        <div class="container mb-5">
-            @if (session('success'))
-                <div class="container mb-4">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <i class="bi bi-check-circle-fill me-2"></i>
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            @endif
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h1 class="display-4 fw-bold text-dark mb-3">Explore Our Categories</h1>
-                    <p class="lead text-muted mb-4">Discover content organized by topics that matter to you</p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <button class="btn btn-primary px-4 rounded-pill">
-                            <i class="fa-light fa-stars me-2"></i>Popular
-                        </button>
-                        <button class="btn btn-outline-secondary px-4 rounded-pill">
-                            <i class="fa-regular fa-arrow-down-arrow-up me-2"></i>Sort
-                        </button>
-                        <a href="/categories/create" class="btn  btn-primary px-4 rounded-pill shadow-sm">
-                            <i class="fa-light fa-circle-plus me-2"></i> Add New Category
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <!-- Page Title -->
+    <div class="page-title position-relative">
+        <div class="breadcrumbs">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="bi bi-house"></i> Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Category</a></li>
+                    <li class="breadcrumb-item active current">Category</li>
+                </ol>
+            </nav>
         </div>
 
-        <!-- Categories Grid -->
-        <div class="container">
-            @if($categories->isEmpty())
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 text-center py-5">
-                        <div class="bg-white p-5 rounded-4 shadow-sm">
-                            <i class="bi bi-folder-x display-1 text-muted mb-4"></i>
-                            <h3 class="h4 fw-bold mb-3">No Categories Found</h3>
-                            <p class="text-muted mb-4">We'll be adding new categories soon. Please check back later!</p>
-                            <button class="btn btn-outline-primary rounded-pill">
-                                <i class="fa-regular fa-bells me-2"></i>Notify Me
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            @else
-                <div class="row g-4">
-                    @foreach ($categories as $category)
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
-                                <div class="card-img-top overflow-hidden rounded-top" style="height: 200px; background-color: #f8f9fa;">
-                                    @if($category->image)
-                                        <img src="{{ asset('storage/' . $category->image) }}"
-                                             alt="{{ $category->name }}"
-                                             class="w-100 h-100 object-fit-cover"
-                                             style="object-fit: cover;">
-                                    @else
-                                        <div class="d-flex align-items-center justify-content-center h-100 text-muted">
-                                            <i class="bi bi-image fs-1"></i>
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="h5 card-title fw-bold mb-2">{{ $category->name }}</h3>
-                                    <p class="card-text text-muted small mb-3">
-                                        {{ $category->description ?? 'Explore articles in this category' }}
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                            <span class="badge bg-primary bg-opacity-10 text-primary">
-                                {{ $category->articles_count ?? 0 }} Articles
-                            </span>
-                                        <a href="{{ route('categories.show', $category->id) }}"
-                                           class="btn btn-outline-orange btn-sm mt-2">View Details</a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-
-        <!-- Call to Action -->
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="bg-white p-5 rounded-4 shadow-sm border border-light">
-                        <div class="row align-items-center">
-                            <div class="col-md-8 mb-3 mb-md-0">
-                                <h3 class="h4 fw-bold mb-2">Have a category suggestion?</h3>
-                                <p class="text-muted mb-0">We're always looking to expand our content to match your
-                                    interests.</p>
-                            </div>
-                            <div class="col-md-4 text-md-end">
-                                <button class="btn btn-primary px-4 rounded-pill">
-                                    <i class="bi bi-envelope me-2"></i>Contact Us
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="title-wrapper">
+            <h1>Blog Category</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
+                pulvinar dapibus leo.</p>
         </div>
     </div>
+    <!-- End Page Title -->
+    <div class="container">
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show rounded-pill shadow-sm" role="alert">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <div>{{ session('success') }}</div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Category Postst Section -->
+                <section id="category-postst" class="category-postst section">
+                    <div class="container" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row gy-4">
+                            @foreach($categories as $category )
+                                <div class="col-lg-6">
+                                    <article>
+                                        <div class="post-img">
+                                            <img src="{{ asset('storage/' . $category->image) }}"
+                                                 alt="{{$category->name}}" class="w-100 h-100 object-fit-cover">
+                                        </div>
 
-    <style>
-        .hover-shadow {
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            transition: all 0.3s ease;
-        }
+                                        <p class="post-category">{{$category->name}}</p>
 
-        .hover-shadow:hover {
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-        }
+                                        <h2 class="title">
+                                            <a href="{{ route('categories.show', $category->id) }}">
+                                                {{str_split($category->description, 30)[0]}}...
+                                            </a>
+                                        </h2>
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/img/person/person-f-12.webp" alt=""
+                                                 class="img-fluid post-author-img flex-shrink-0">
+                                            <div class="post-meta">
+                                                <p class="post-author">{{$category->category_author}}</p>
+                                                <p class="post-date">
+                                                    <time datetime="2022-01-01">
+                                                        {{ date('M d, Y', strtotime($category->created_at)) }}
+                                                    </time>
+                                                </p>
+                                            </div>
+                                        </div>
 
-        .transition-all {
-            transition: all 0.3s ease;
-        }
+                                    </article>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
 
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #6c63ff 0%, #4a3aff 100%);
-        }
-    </style>
+                </section>
+                <!-- /Category Postst Section -->
+                <!-- Pagination 2 Section -->
+                <div class="d-flex justify-content-center mt-5">
+                    {{ $categories->onEachSide(1)->links('pagination::bootstrap-5') }}
+                </div>
+                <!-- /Pagination 2 Section -->
+            </div>
+
+            <div class="col-lg-4 sidebar">
+
+                <div class="widgets-container" data-aos="fade-up" data-aos-delay="200">
+                    {{-- Add Category--}}
+                    <div class=" d-flex justify-content-center widget-item">
+                        <a href="{{route('categories.create')}}" class="add-category">Add Category</a>
+                    </div>
+                    <!-- Search Widget -->
+                    <div class="search-widget widget-item">
+                        <h3 class="widget-title">Search</h3>
+                        <form action="">
+                            <input type="text">
+                            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div>
+                    <!--/Search Widget -->
+
+                    <!-- Categories Widget -->
+                    <div class="categories-widget widget-item">
+
+                        <h3 class="widget-title">Categories</h3>
+                        <ul class="mt-3">
+                            @foreach($categories as $category)
+                                <li><a href="{{ route('categories.show', $category->id) }}">{{$category->name}} <span>({{$category->number_of_articles}})</span></a>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                    </div>
+                    <!-- Categories Widget -->
+
+                    <!-- Recent Posts Widget -->
+                    <div class="recent-posts-widget widget-item">
+
+                        <h3 class="widget-title">Recent Posts</h3>
+                        @foreach($articles as $article)
+                            <div class="post-item">
+                                <img src="{{ asset('storage/' . $article->image) }}" alt="" class="flex-shrink-0">
+                                <div>
+                                    <h4><a href="{{ url('/articles/' . $article->id) }}">{{$article->title}}</a></h4>
+                                    <time datetime="2020-01-01">
+                                        {{ date('M d, Y', strtotime($article->created_at)) }}
+                                    </time>
+                                </div>
+                            </div>
+                        @endforeach
+                        <!-- End recent post item-->
+
+
+                    </div>
+                    <!--/Recent Posts Widget -->
+
+                    <!-- Tags Widget -->
+                    <div class="tags-widget widget-item">
+
+                        <h3 class="widget-title">Tags</h3>
+                        <ul>
+                            @foreach($tags as $tag)
+                                <li><a href="#">
+                                        {{ $tag }}
+                                    </a></li>
+                            @endforeach
+                        </ul>
+
+                    </div><!--/Tags Widget -->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+@endsection
+
+@section('footer')
+    @include('partials.footer')
 @endsection
