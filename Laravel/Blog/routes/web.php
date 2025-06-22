@@ -32,8 +32,6 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])-
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
