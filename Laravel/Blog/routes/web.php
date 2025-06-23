@@ -18,7 +18,8 @@ Route::get('/articles/delete/{id}', [ArticleController::class, 'delete'])->name(
 Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 
 Route::get('/articles/edit/{id}', [ArticleController::class, 'edit'])->name('articles.edit');
-Route::put('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+Route::put('/articles/{article:slug}', [ArticleController::class, 'update'])->name('articles.update');
+
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');

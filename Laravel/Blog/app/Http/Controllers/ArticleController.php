@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -45,28 +47,24 @@ class ArticleController extends Controller
         return view('articles.create', ['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|max:255',
-            'slug' => 'required|unique:articles',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'category_id' => 'required|exists:categories,id',
-            'content' => 'required|min:150',
-            'tags' => 'nullable|string|max:255',
-        ]);
+        $article = new Article();
+        $article->title = $request->title;
+        $article->slug = $request->slug;
+        $article->content = $request->content;
+        $article->category_id = $request
+            ->category_id;
+        $article->tags = $request->tags;
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('articles', 'public');
-            $validated['image'] = $imagePath;
+            $article['image'] = $imagePath;
         }
-
         // Add the currently authenticated user ID
-        $validated['user_id'] = auth()->id();
-
+        $article['user_id'] = auth()->id();
         // Store the article
-        $article = Article::create($validated);
-
+        $article->save();
         // Increment article count on the category
         Category::where('id', $article->category_id)->increment('number_of_articles');
 
@@ -102,27 +100,18 @@ class ArticleController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateArticleRequest $request, Article $article)
     {
-        $article = Article::findOrFail($id);
-
-        $validated = $request->validate([
-            'title' => 'required|max:255',
-            'slug' => 'required|unique:articles,slug,' . $id,
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'content' => 'required|max:255',
-            'tags' => 'nullable|string'
-        ]);
+        $data = $request->only(['title', 'slug', 'content', 'tags']);
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('articles', 'public');
-            $validated['image'] = $imagePath;
-        } else {
-            $validated['image'] = $article->image;
+            $data['image'] = $request->file('image')->store('articles', 'public');
         }
 
-        $article->update($validated);
+        $article->update($data);
 
-        return redirect('/articles/' . $id)->with('success', 'Article updated successfully');
+        return redirect('/articles/' . $article->slug)->with('success', 'Article updated successfully');
     }
+
+
 }

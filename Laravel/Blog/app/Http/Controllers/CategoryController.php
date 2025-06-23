@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -35,13 +37,9 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
-        ]);
+        $validated = $request->validated();
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('categories', 'public');
             $validated['image'] = $imagePath;
@@ -50,6 +48,7 @@ class CategoryController extends Controller
         Category::create($validated);
         return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
+
 
     public function show(Category $category)
     {
@@ -63,29 +62,18 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateCategoryRequest $request, string $id)
     {
         $category = Category::findOrFail($id);
-
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-        ]);
-
+        $validated = $request->validated();
         if ($request->hasFile('image')) {
-
             if ($category->image && Storage::disk('public')->exists($category->image)) {
                 Storage::disk('public')->delete($category->image);
             }
-
-
             $imagePath = $request->file('image')->store('categories', 'public');
             $validated['image'] = $imagePath;
         }
-
         $category->update($validated);
-
         return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
