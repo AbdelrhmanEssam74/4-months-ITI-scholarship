@@ -36,7 +36,7 @@
                     <!-- Title -->
                     <div class="mb-5">
                         <input type="text" name="title" id="title" class="minimal-input"
-                               placeholder="Article Title" value="{{ old('title') }}" required>
+                               placeholder="Article Title" value="{{ old('title') }}"  >
                         @error('title')
                         <div class="minimal-error">{{ $message }}</div> @enderror
                     </div>

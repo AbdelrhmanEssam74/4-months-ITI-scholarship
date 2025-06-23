@@ -32,7 +32,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('articles.update', $article->id) }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('articles.update', $article->slug) }}" method="POST" enctype="multipart/form-data"
                   class="category-form">
                 @csrf
                 @method('PUT')
