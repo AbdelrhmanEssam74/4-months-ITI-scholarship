@@ -11,7 +11,8 @@ class StoreArticleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return auth()->check(); // Ensure the user is authenticated
+        ///return auth()->check(); // Ensure the user is authenticated
+        return true;
     }
 
     /**
@@ -25,7 +26,7 @@ class StoreArticleRequest extends FormRequest
             // validation rules for storing an article
             'title' => 'required|max:255',
             'slug' => 'required|unique:articles',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+//            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             'category_id' => 'required|exists:categories,id',
             'content' => 'required|min:150',
             'tags' => 'nullable|string|max:255',

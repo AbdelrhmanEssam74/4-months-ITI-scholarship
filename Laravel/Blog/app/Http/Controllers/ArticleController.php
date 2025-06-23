@@ -49,27 +49,16 @@ class ArticleController extends Controller
 
     public function store(StoreArticleRequest $request)
     {
-        $article = new Article();
-        $article->title = $request->title;
-        $article->slug = $request->slug;
-        $article->content = $request->content;
-        $article->category_id = $request
-            ->category_id;
-        $article->tags = $request->tags;
-
+        $validated = $request->validated();
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('articles', 'public');
-            $article['image'] = $imagePath;
+            $validated['image'] = $request->file('image')->store('articles', 'public');
         }
-        // Add the currently authenticated user ID
-        $article['user_id'] = auth()->id();
-        // Store the article
-        $article->save();
-        // Increment article count on the category
+        $validated['user_id'] = auth()->id();
+        $article = Article::create($validated);
         Category::where('id', $article->category_id)->increment('number_of_articles');
-
         return redirect('/articles')->with('success', 'Article created successfully');
     }
+
 
 
     public function delete($id)

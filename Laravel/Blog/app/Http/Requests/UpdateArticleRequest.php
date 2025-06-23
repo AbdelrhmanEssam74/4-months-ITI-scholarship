@@ -12,7 +12,8 @@ class UpdateArticleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return auth()->check(); // Ensure the user is authenticated
+//        return auth()->check(); // Ensure the user is authenticated
+        return true;
     }
 
     /**
@@ -29,13 +30,13 @@ class UpdateArticleRequest extends FormRequest
             'title' => 'required|max:255',
             'slug' => [
                 'required',
-                Rule::unique('articles', 'slug')->ignore($article->slug, 'slug'), // Exclude the current article's slug
+                $article
+                    ? Rule::unique('articles', 'slug')->ignore($article->slug, 'slug')
+                    : Rule::unique('articles', 'slug'),
             ],
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'content' => 'required|min:100',
             'tags' => 'nullable|string',
         ];
     }
-
-
 }
