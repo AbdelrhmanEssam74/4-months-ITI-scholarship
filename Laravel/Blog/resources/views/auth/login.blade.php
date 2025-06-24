@@ -67,6 +67,11 @@
                         </form>
                     </div>
                 </div>
+                <div class="text-center mt-3">
+                    <a href="{{ route('auth.github') }}" class="btn btn-dark btn-lg rounded-pill w-100">
+                        <i class="bi bi-github me-2"></i> Login with GitHub
+                    </a>
+                </div>
 
                 <!-- Optional: Register Prompt -->
                 <div class="text-center mt-4">

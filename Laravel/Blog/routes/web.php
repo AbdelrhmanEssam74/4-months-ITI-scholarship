@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\GithubController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
@@ -42,4 +43,6 @@ Route::post('/comments', [CommentController::class, 'store'])->name('comments.st
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 Route::put('/comments/{id}', [CommentController::class, 'update'])->name('comments.update');
 
-
+// Github
+Route::get('/auth/github', [GithubController::class, 'redirectToGithub'])->name('auth.github');
+Route::get('/auth/github/callback', [GithubController::class, 'handleGithubCallback'])->name('github.callback');

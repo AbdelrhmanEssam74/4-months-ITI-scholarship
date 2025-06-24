@@ -7,7 +7,16 @@
     <section id="blog-hero" class="blog-hero section">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
-
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show rounded-pill shadow-sm" role="alert">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        <div>{{ session('success') }}</div>
+                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                    </div>
+                </div>
+            @endif
             <div class="blog-grid">
 
                 <!-- Featured Post (Large) -->
