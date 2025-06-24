@@ -46,13 +46,13 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        $validated = $request->validated();
+        $data = $request->validated();
 //        if ($request->hasFile('image')) {
 //            $validated['image'] = $request->file('image')->store('articles', 'public');
 //        }
-        $validated['user_id'] = $request->input('user_id', 1);
+        $data['user_id'] = auth()->id();
 //        $validated['user_id'] = auth()->id();
-        $article = Article::create($validated);
+        $article = Article::create($data);
         Category::where('id', $article->category_id)->increment('number_of_articles');
         return response()->json([
             'message' => 'Article created successfully',
