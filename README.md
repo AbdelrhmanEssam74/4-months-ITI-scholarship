@@ -1,6 +1,6 @@
 # ITI 4-Month Scholarship Labs Repository
 
-📌 **Welcome to my ITI 4-Month Scholarship Labs Repository!** 🚀
+📌 **Welcome to my ITI 4-Month Scholarship Labs Repository!** 
 
 ## 📖 About This Repository
 This repository contains daily lab exercises and projects from my **4-month ITI scholarship** journey. Each day's work is organized systematically to track progress and enhance learning.
